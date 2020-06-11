@@ -1,0 +1,20 @@
+CFLAGS=		-Wall -Wextra -Os -s
+LDFLAGS=	-mwindows -nostdlib -ffreestanding
+LDLIBS=		-lkernel32 -luser32
+OBJ=		barcode.o resource.o
+
+all: ${BIN}
+
+resource.o: barcode.manifest
+
+${BIN}: ${OBJ}
+	${CC} ${LDFLAGS} -o $@ $^ ${LDLIBS}
+
+clean:
+	rm -f ${BIN} ${OBJ}
+
+.rc.o:
+	${RES} -o $@ $<
+
+.SUFFIXES: .rc
+.PHONY: all clean
