@@ -1,3 +1,32 @@
 #include <windows.h>
 
 1 RT_MANIFEST "barcode.manifest"
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION	0,1,0,0
+PRODUCTVERSION	0,1,0,0
+FILEFLAGS	VS_FF_PRERELEASE
+FILEOS		VOS__WINDOWS32
+FILETYPE	VFT_APP {
+BLOCK "StringFileInfo" {
+  BLOCK "040904E4" {
+   VALUE "CompanyName", 	"Sijmen J. Mulder"
+   VALUE "FileVersion",		"0.1"
+   VALUE "LegalCopyright",	"© 2020 Sijmen J. Mulder"
+   VALUE "ProductName",		"Barcode"
+   VALUE "ProductVersion",	"0.1"
+#ifdef _WIN64
+   VALUE "FileDescription",	"Barcode (64-bit)"
+   VALUE "InternalName",	"barcod64"
+   VALUE "OriginalFilename",	"barcod64.exe"
+#else
+   VALUE "FileDescription",	"Barcode (32-bit)"
+   VALUE "InternalName",	"barcod32"
+   VALUE "OriginalFilename",	"barcod32.exe"
+#endif
+  }
+ }
+ BLOCK "VarFileInfo" {
+  VALUE "Translation", 0x0409, 1252
+ }
+}
